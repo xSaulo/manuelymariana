@@ -1,0 +1,170 @@
+/* inicio · Mariana & Manuel */
+body{margin:0;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+*{box-sizing:border-box}
+.pg{position:relative;width:100%;overflow-x:hidden;background:#ECEBE6 url(../assets/img/ivory-paper.jpg) center top/cover;color:#2F2E28;font-family:'Cormorant Garamond',serif}
+.sc{font-family:'Cormorant SC',serif;letter-spacing:.14em;margin:0}
+.script{font-family:'Pinyon Script',cursive;font-weight:400;margin:0;line-height:1.1}
+.olivo{background:#45432B url(../assets/img/olive-paper.jpg) center/cover}
+.burdeos{background:#5A2A2B url(../assets/img/ivory-paper.jpg) center/cover;background-blend-mode:multiply}
+.nav{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(16px,4vw,48px)}
+.nav a{min-height:44px;display:inline-flex;align-items:center;text-decoration:none;font-family:'Cormorant SC',serif;letter-spacing:.14em;font-size:14px;color:#5A2A2B}
+.hero{position:relative}
+.scene{position:absolute;left:50%;top:0;width:1000px;height:720px;transform-origin:50% 0}
+.p{position:absolute}
+.rise{animation:rise 1.6s cubic-bezier(.2,.7,.2,1) .3s both}
+@keyframes rise{from{transform:translateY(120px) rotate(-4deg)}to{transform:translateY(0) rotate(-4deg)}}
+.strip{animation:strip 1.6s cubic-bezier(.2,.7,.2,1) .6s both}
+@keyframes strip{from{opacity:0;transform:translateY(40px) rotate(14deg)}to{opacity:1;transform:rotate(7deg)}}
+.photo{background:#2E3020;display:flex;align-items:center;justify-content:center}
+.photo span{font-family:'Cormorant SC',serif;letter-spacing:.12em;font-size:11px;color:#D8D5C6;text-align:center;padding:0 8px}
+.collage{position:relative;width:100%;overflow:hidden}
+.mesa{position:absolute;left:50%;top:0;width:600px;height:1820px;transform-origin:50% 0}
+.mesa .p{position:absolute}
+.mesa .pola{padding:10px 10px 34px}
+.disco{border:0;padding:0;margin:0;background:none;cursor:pointer;border-radius:50%;filter:drop-shadow(0 14px 18px rgba(20,15,10,.35));-webkit-tap-highlight-color:transparent}
+/* Disco: detrás de las fotos; al pasar el cursor, tocarlo o mientras gira, queda encima */
+.disco:hover,.disco:focus-visible,.disco:active,.disco.sonando{z-index:7}
+.disco:focus-visible{outline:2px solid #5A2A2B;outline-offset:6px}
+.vinilo{position:relative;width:100%;height:100%;animation:girar 1.8s linear infinite;animation-play-state:paused}
+.disco.sonando .vinilo{animation-play-state:running}
+.vinilo img{width:100%;height:100%;display:block}
+.vinilo .etq{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-bottom:26px;font-family:'Pinyon Script',cursive;font-size:24px;color:#5A2A2B}
+@keyframes girar{to{transform:rotate(360deg)}}
+.nota{font-family:'Pinyon Script',cursive;font-size:24px;color:#5A2A2B;text-align:center;margin:0}
+.yt{position:absolute;left:0;bottom:0;width:200px;height:200px;border:0;opacity:0;pointer-events:none}
+/* Foto 2 queda encima de la esquina del encaje; al pasar el cursor o tocar, el encaje sube */
+.det{z-index:2}
+.det:hover,.det:focus-visible,.det:active{z-index:6}
+/* amaranto colgante: cae desde arriba y se mece suave */
+.cae{transform-origin:50% 1%;animation:cae 2.4s cubic-bezier(.25,.6,.2,1) .9s both,mece 6s ease-in-out 3.3s infinite;pointer-events:none;filter:drop-shadow(0 10px 12px rgba(30,30,10,.3))}
+@keyframes cae{from{clip-path:inset(0 0 100% 0);transform:translateY(-18px) rotate(-2deg)}to{clip-path:inset(0 0 0 0);transform:none}}
+@keyframes mece{0%,100%{transform:rotate(0)}50%{transform:rotate(1.8deg)}}
+/* Las piezas del collage caen sobre la mesa una por una */
+.mesa > .p{transition:opacity .7s ease var(--d,0s),translate .95s cubic-bezier(.2,.8,.25,1) var(--d,0s),scale .95s cubic-bezier(.2,.8,.25,1) var(--d,0s),transform .35s ease,filter .35s ease}
+.mesa.prep > .p{opacity:0;translate:0 -52px;scale:1.07}
+.mesa.prep.on > .p{opacity:1;translate:0 0;scale:1}
+.mesa > :nth-child(1){--d:0.00s}.mesa > :nth-child(2){--d:0.10s}.mesa > :nth-child(3){--d:0.20s}.mesa > :nth-child(4){--d:0.30s}.mesa > :nth-child(5){--d:0.40s}.mesa > :nth-child(6){--d:0.50s}.mesa > :nth-child(7){--d:0.60s}.mesa > :nth-child(8){--d:0.70s}.mesa > :nth-child(9){--d:0.80s}.mesa > :nth-child(10){--d:0.90s}.mesa > :nth-child(11){--d:1.00s}.mesa > :nth-child(12){--d:1.10s}.mesa > :nth-child(13){--d:1.20s}.mesa > :nth-child(14){--d:1.30s}.mesa > :nth-child(15){--d:1.40s}.mesa > :nth-child(16){--d:1.50s}.mesa > :nth-child(17){--d:1.60s}.mesa > :nth-child(18){--d:1.70s}.mesa > :nth-child(19){--d:1.80s}.mesa > :nth-child(20){--d:1.90s}
+@media (prefers-reduced-motion: reduce){.mesa > .p{transition:none}.mesa.prep > .p{opacity:1;translate:none;scale:1}}
+.card{display:block;text-decoration:none;transition:transform .35s ease,filter .35s ease;filter:drop-shadow(0 18px 24px rgba(40,30,15,.22))}
+.card:hover{transform:translateY(-8px) rotate(0deg)!important;filter:drop-shadow(0 26px 30px rgba(40,30,15,.3))}
+.card:focus-visible{outline:2px solid #5A2A2B;outline-offset:8px}
+.tocar{font-family:'Cormorant SC',serif;letter-spacing:.22em;font-size:13px}
+.pola{background:#FBFAF6;padding:10px 10px 38px;box-shadow:0 14px 26px rgba(40,30,15,.2)}
+.count{display:flex;align-items:flex-start;gap:clamp(8px,2vw,24px);font-family:'Cutive Mono',monospace;color:#2F2E28}
+.count .n{font-size:clamp(34px,6vw,72px);line-height:1}
+.count .c{font-size:clamp(28px,5vw,60px);line-height:1}
+.count .l{display:block;margin-top:8px;font-family:'Cormorant SC',serif;font-size:13px;letter-spacing:.14em;color:#5A2A2B}
+[hidden]{display:none!important}
+
+/* Un brillo pasa una vez por cada tarjeta después de caer, para invitar a tocar */
+.mesa .card::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(110deg,transparent 38%,rgba(255,250,235,.55) 50%,transparent 62%) no-repeat;background-size:260% 100%;background-position:130% 0;mix-blend-mode:soft-light;opacity:0}
+.mesa.on .card::after{animation:brillo 1.5s ease calc(var(--d,0s) + 1.2s) 1 both}
+@keyframes brillo{0%{opacity:1;background-position:130% 0}100%{opacity:1;background-position:-30% 0}}
+/* Transición dorada antes de "Con amor" */
+.cierre{display:flex;align-items:center;justify-content:center;gap:16px;width:100%}
+.cierre span{flex:0 1 110px;height:1px;background:linear-gradient(90deg,transparent,#C9A35E)}
+.cierre span:last-child{background:linear-gradient(90deg,#C9A35E,transparent)}
+@media (prefers-reduced-motion: reduce){.cae,.rise,.strip,.vinilo,.mesa .card::after{animation:none!important}}
+
+/* Invitación a reproducir la canción: texto grande y onda que late alrededor del disco */
+.nota{width:auto!important;white-space:nowrap;padding:6px 22px 10px;font-size:31px!important;line-height:1.1;color:#F4EADA!important;background:#5A2A2B url(../assets/img/ivory-paper.jpg) center/cover;background-blend-mode:multiply;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(201,163,94,.75),inset 0 0 0 4px #5A2A2B,inset 0 0 0 5px rgba(201,163,94,.35),0 10px 18px rgba(40,16,16,.28);z-index:8}
+.disco:not(.sonando)::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:2px solid rgba(90,42,43,.55);animation:onda 2.2s ease-out infinite;pointer-events:none}
+.disco:not(.sonando)::after{content:"";position:absolute;inset:-12px;border-radius:50%;border:2px solid rgba(201,163,94,.6);animation:onda 2.2s ease-out 1.1s infinite;pointer-events:none}
+@keyframes onda{from{transform:scale(.9);opacity:.95}to{transform:scale(1.18);opacity:0}}
+@media (prefers-reduced-motion: reduce){.disco::before,.disco::after{animation:none!important}}
+
+/* ================= VERSIÓN 2.0 · Paso 2: la mesa con papeles reales ================= */
+.pg{--luz:drop-shadow(1px 2px 1.5px rgba(40,30,15,.32)) drop-shadow(7px 14px 16px rgba(40,30,15,.2));--luz-alta:drop-shadow(2px 3px 2px rgba(40,30,15,.3)) drop-shadow(11px 24px 24px rgba(40,30,15,.24));--foil:linear-gradient(135deg,#8F6B2E 0%,#E9D29A 20%,#B88A3E 42%,#F6E7BC 60%,#A97F38 78%,#E2C583 100%)}
+/* una sola luz (arriba a la izquierda) para todas las piezas */
+.mesa .card{filter:var(--luz)}
+.mesa .card:hover{filter:var(--luz-alta)}
+.mesa .pola{box-shadow:none;filter:var(--luz)}
+.mesa > img.p.pieza{filter:var(--luz)!important}
+.disco{filter:var(--luz)}
+/* papeles con fibra, grano y canto */
+.olivo{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.014 .55' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 -.14'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),url(../assets/img/olive-paper.jpg);background-blend-mode:multiply,normal;background-size:auto,cover}
+.burdeos{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.014 .55' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 -.14'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),url(../assets/img/ivory-paper.jpg);background-blend-mode:multiply,multiply;background-size:auto,cover}
+.v2-borde{filter:url(#v2-borde);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .28  0 0 0 0 .18  0 0 0 .22 -.04'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),url(../assets/img/ivory-paper.jpg)!important;background-size:auto,cover!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 -1px 0 rgba(60,45,20,.12)}
+.pola,.strip{background-color:#FBFAF6!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .28  0 0 0 0 .18  0 0 0 .22 -.04'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),linear-gradient(155deg,#FFFFFF,#F1EEE5)!important}
+.forro{background-color:#5A2A2B;background-image:radial-gradient(circle,rgba(226,200,138,.55) 0 1.1px,transparent 1.6px),repeating-linear-gradient(45deg,rgba(220,192,126,.17) 0 1px,transparent 1px 14px),repeating-linear-gradient(-45deg,rgba(220,192,126,.17) 0 1px,transparent 1px 14px),linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.42)),url(../assets/img/ivory-paper.jpg);background-size:19.8px 19.8px,auto,auto,auto,cover;background-blend-mode:normal,normal,normal,normal,multiply}
+/* fotos de muestra en marfil con el monograma, hasta que lleguen las reales */
+.photo{flex-direction:column;gap:2px;background:#DDD8CA url(../assets/img/ivory-paper.jpg) center/cover;background-blend-mode:multiply;box-shadow:inset 0 0 0 1px rgba(60,45,20,.08),inset 0 8px 16px rgba(60,45,20,.12)}
+.photo{container-type:inline-size}
+.photo::before{content:"M & M";font-family:'Pinyon Script',cursive;font-size:clamp(15px,24cqw,44px);line-height:1;white-space:nowrap;color:rgba(90,42,43,.2)}
+.photo span{color:#8A8371;font-size:10px}
+/* dorado tipo foil en los marcos */
+.foil{padding:1.3px;background:var(--foil);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);pointer-events:none}
+.foil.tenue{opacity:.5}
+.cierre span{background:var(--foil)!important;-webkit-mask:linear-gradient(90deg,transparent,#000);mask:linear-gradient(90deg,transparent,#000)}
+.cierre span:last-child{-webkit-mask:linear-gradient(90deg,#000,transparent);mask:linear-gradient(90deg,#000,transparent)}
+/* cinta de papel en las polaroids */
+.cinta::before{content:"";position:absolute;left:50%;top:-15px;width:96px;height:30px;transform:translateX(-50%) rotate(-3deg);background:repeating-linear-gradient(90deg,rgba(255,255,255,.2) 0 2px,transparent 2px 7px),linear-gradient(180deg,rgba(236,224,192,.86),rgba(214,198,160,.82));clip-path:polygon(0 0,4% 12%,0 25%,4% 38%,0 50%,4% 62%,0 75%,4% 88%,0 100%,100% 100%,96% 88%,100% 75%,96% 62%,100% 50%,96% 38%,100% 25%,96% 12%,100% 0)}
+.cinta.c2::before{left:38%;transform:translateX(-50%) rotate(4deg)}
+/* brazo del tocadiscos: baja la aguja cuando suena la canción */
+.brazo{position:absolute;right:-40px;top:-22px;width:92px;height:172px;transform-origin:72.5% 14.7%;transform:rotate(-18deg);transition:transform 1.1s cubic-bezier(.4,0,.2,1);pointer-events:none;filter:drop-shadow(2px 4px 3px rgba(20,15,10,.4))}
+.brazo svg{width:100%;height:100%;display:block}
+.disco.sonando .brazo{transform:rotate(11deg)}
+/* profundidad: al hacer scroll, las piezas de arriba se mueven un poco más */
+.mesa.prep.on.lista > .p{translate:0 calc(var(--py,0) * var(--z,0) * 1px);transition:translate .35s linear,transform .35s ease,filter .35s ease}
+@media (prefers-reduced-motion: reduce){.mesa.prep.on.lista > .p{translate:none}.brazo{transition:none}}
+
+/* ---- 2.0 · sobre abierto color vino: contrasta con el amaranto verde ---- */
+.vino-s{background-color:#63292C;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.014 .55' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 -.14'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),url(../assets/img/ivory-paper.jpg);background-blend-mode:multiply,multiply;background-size:auto,cover}
+.vino-s.solapa{filter:brightness(.9)}
+.vino-s.fondo{box-shadow:1px 2px 2px rgba(40,20,15,.35),10px 22px 34px rgba(40,20,15,.3),inset 0 0 0 1px rgba(255,235,225,.07)!important}
+.vino-s.fondo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.12) 34%,transparent 60%)}
+.bolsillo-s{filter:drop-shadow(0 -5px 7px rgba(25,6,6,.38))}
+.bolsillo-s .vino-s{position:absolute;inset:0;clip-path:polygon(0 0,50% 45%,100% 0,100% 100%,0 100%);filter:brightness(1.1)}
+.bolsillo-s .vino-s::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,225,215,.1),transparent 40%,rgba(0,0,0,.2))}
+.forro{background-color:#4B492E;background-image:radial-gradient(circle,rgba(226,200,138,.6) 0 1.1px,transparent 1.6px),repeating-linear-gradient(45deg,rgba(220,192,126,.2) 0 1px,transparent 1px 14px),repeating-linear-gradient(-45deg,rgba(220,192,126,.2) 0 1px,transparent 1px 14px),linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.4)),url(../assets/img/olive-paper.jpg);background-size:19.8px 19.8px,auto,auto,auto,cover;background-blend-mode:normal,normal,normal,normal,normal}
+
+/* ---- 2.0 · más aire: el collage en grupos separados, no todo encimado ---- */
+.collage{margin-top:clamp(26px,7vw,64px)}
+
+/* ================= 2.0 · Entrada elegante del sobre abierto =================
+   1 sube el sobre cerrado · 2 la solapa se abre y aparece el forro · 3 sale la invitación
+   4 cae el sello · 5 entra la tira de fotos · 6 cae el amaranto */
+.nav{animation:v2fade .7s ease .1s both}
+@keyframes v2fade{from{opacity:0}to{opacity:1}}
+.hero .e-env{animation:v2sube .55s cubic-bezier(.2,.7,.2,1) 0s both}
+@keyframes v2sube{from{opacity:0;translate:0 46px}to{opacity:1;translate:0 0}}
+.hero .solapa{transform-origin:50% 100%;animation:v2solapa 1.35s 0s both}
+@keyframes v2solapa{
+  0%{opacity:0;translate:0 46px;transform:scaleY(-1);z-index:6;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+  40%{opacity:1;translate:0 0;transform:scaleY(-1);z-index:6}
+  55%{transform:scaleY(-1);z-index:6;animation-timing-function:cubic-bezier(.45,0,.25,1)}
+  77%{z-index:6}78%{z-index:0}
+  100%{opacity:1;translate:0 0;transform:scaleY(1);z-index:0}}
+.hero .forro{transform-origin:50% 100%;animation:v2forro 1.35s 0s both}
+@keyframes v2forro{0%,77%{opacity:0;transform:scaleY(0)}78%{opacity:1;animation-timing-function:cubic-bezier(.2,.6,.3,1)}100%{opacity:1;transform:scaleY(1)}}
+.hero .rise{animation:v2carta 1s cubic-bezier(.2,.7,.2,1) 1.3s both}
+@keyframes v2carta{from{opacity:0;transform:translateY(260px) rotate(-4deg);clip-path:inset(0 0 232px 0)}22%{opacity:1}to{opacity:1;transform:translateY(0) rotate(-4deg);clip-path:inset(-40px -40px -40px -40px)}}
+.hero .e-sello{animation:v2sello .6s cubic-bezier(.3,1.45,.5,1) 2s both}
+@keyframes v2sello{from{opacity:0;transform:translateY(-46px) scale(1.7)}55%{opacity:1}to{opacity:1;transform:none}}
+.hero .strip{animation:strip .9s cubic-bezier(.2,.7,.2,1) 2.05s both}
+.hero .cae{animation:cae 1.3s cubic-bezier(.25,.6,.2,1) 2.1s both,mece 6s ease-in-out 3.4s infinite}
+/* todo espera quieto hasta que el sobre está en pantalla */
+.hero:not(.on) .p{animation-play-state:paused!important}
+@media (prefers-reduced-motion: reduce){.nav,.hero .p{animation:none!important;opacity:1!important;translate:none!important;clip-path:none!important}}
+
+/* ---- 2.0 · marco oval dorado (Foto 2) ---- */
+.marco-o{filter:var(--luz)}
+.marco-o .photo{box-shadow:inset 0 0 0 1px rgba(60,45,20,.15),inset 0 6px 14px rgba(60,45,20,.28)}
+.marco-o .photo span{font-size:9px}
+/* ---- 2.0 · al tocar "Confirma tu asistencia": el sobre se abre y sale la tarjeta ---- */
+.rsvp-s .carta-r{position:absolute;left:9%;right:9%;top:8%;height:78%;border-radius:2px;background:#F6F4EE url(../assets/img/ivory-paper.jpg) center/cover;box-shadow:inset 0 0 0 6px #F6F4EE,inset 0 0 0 7px rgba(201,163,94,.8);display:flex;align-items:center;justify-content:center;opacity:0;transition:transform .75s cubic-bezier(.2,.7,.2,1) .55s,opacity .25s ease .55s}
+.rsvp-s .carta-r span{font-family:'Pinyon Script',cursive;font-size:34px;color:#5A2A2B;margin-top:-30%}
+.rsvp-s .solapa-r{transform-origin:50% 0;transition:transform .6s cubic-bezier(.45,0,.25,1) .15s,z-index 0s .45s}
+.rsvp-s .txt-r,.rsvp-s .sello-r{transition:opacity .3s ease,transform .45s cubic-bezier(.3,0,.3,1)}
+.rsvp-s.abriendo .sello-r{opacity:0;transform:translateY(-22px) scale(1.25) rotate(-12deg)}
+.rsvp-s.abriendo .txt-r{opacity:0}
+.rsvp-s.abriendo .solapa-r{transform:rotateX(180deg);z-index:-1}
+.rsvp-s.abriendo .carta-r{opacity:1;transform:translateY(-62%)}
+.rsvp-s.abriendo{animation:v2sale-r 1.65s ease both}
+@keyframes v2sale-r{0%,78%{scale:1;opacity:1}100%{scale:1.1;opacity:0}}
+/* ---- 2.0 · al tocar "Los detalles": la tarjeta se levanta y crece ---- */
+.det.abriendo{z-index:9!important;animation:v2sale-d 1.15s cubic-bezier(.5,0,.25,1) both}
+@keyframes v2sale-d{0%{translate:0 0;scale:1;rotate:0deg;opacity:1}35%{translate:0 -16px;scale:1.08;rotate:-7deg;opacity:1}100%{translate:0 -16px;scale:1.9;rotate:-7deg;opacity:0}}
+.saliendo .pg{opacity:0;transition:opacity .3s ease}
+@media (prefers-reduced-motion: reduce){.rsvp-s *,.det.abriendo,.rsvp-s.abriendo{transition:none!important;animation:none!important}}
